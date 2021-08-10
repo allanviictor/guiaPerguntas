@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %> 
+
+    <body>
+        
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="title">Perguntas</h1>
+                        <a href="/perguntar" class="btn btn-primary">perguntar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <% perguntas.forEach( pergunta => { %> 
+                    <div class="col-4 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <%=pergunta.titulo %>
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-priamry w-100" href='/pergunta/<%=pergunta.id %>'>
+                                    <button class="btn btn-primary">responder</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>  
+                <% }) %>
+            </div>
+        </div>
+
+        
+    </body>
+
+<%- include('partials/footer.ejs') %>

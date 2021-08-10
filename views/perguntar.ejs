@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+
+    <%- include('partials/nav-bar.ejs') %>
+
+    <div class="container">
+        
+        <form class="my-5" method="POST" action="/salvarperguntas">
+            <div class="row">
+                <div class="col-3 offset-3">
+                    <h3>Realizar Pergunta</h3>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="titulo">Titulo</label>
+                        <input type="text" id="titulo" class="form-control" name="titulo">
+                    </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="descricao">Descricao</label>
+                        <textarea name="descricao" class="form-control" id="descricao" cols="30" rows="10"></textarea>
+                    </div>
+                </div>            
+            </div>
+            <div class="row">
+                <div class="col-3 offset-3">
+                    <button class="btn btn-primary">Perguntar</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</body>
+
+
+<%- include('partials/footer.ejs') %>
