@@ -70,13 +70,35 @@ app.get('/pergunta/:id',(req, respo) => {
         where: { id: id }
     }).then(pergunta => {
         if(pergunta != undefined){
-            respo.render('pergunta',{
-                pergunta
+
+            repostas.findAll({
+                where: { idPergunta: pergunta.id }        
+            }).then(resposta => {
+                respo.render('pergunta',{
+                    pergunta,
+                    resposta
+                })
             })
+
         }else {
             respo.render('perguntar')
         }
     })
+   
+
+})
+
+app.post('/responder',(req,respo) => {
+    let resposta = req.body.corpo
+    let idPergunta = req.body.pergunta
+
+    repostas.create({
+        descricao: resposta,
+        idPergunta: idPergunta
+    }).then(()=> {
+        respo.redirect(`/pergunta/${idPergunta}`)
+    })
+
 })
 
 app.listen(4000, ()=> {
